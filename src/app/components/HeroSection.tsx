@@ -1,4 +1,10 @@
-import imgHeroBackground from "figma:asset/c70aae6ca543b4f31634eacef7bed3583d75472c.png";
+import { lazy, Suspense } from "react";
+
+const GLSLHills = lazy(() => import("@/components/ui/glsl-hills").then(mod => ({ default: mod.GLSLHills })));
+
+function GLSLHillsFallback() {
+  return <div className="absolute inset-0 bg-[#040404]" />;
+}
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -10,20 +16,13 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative flex items-center justify-center min-h-screen px-6 md:px-24 overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 overflow-hidden opacity-12">
-          <img 
-            alt="" 
-            className="absolute w-full h-full object-cover" 
-            src={imgHeroBackground} 
-          />
-        </div>
-        <div className="absolute bg-[rgba(51,255,65,0.37)] inset-0" />
+      <div className="absolute inset-0">
+        <Suspense fallback={<GLSLHillsFallback />}>
+          <GLSLHills width="100%" height="100%" />
+        </Suspense>
       </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col gap-4 items-center text-center max-w-4xl">
+      
+      <div className="relative z-10 flex flex-col gap-4 items-center text-center max-w-4xl pointer-events-none">
         <h1 className="font-['Arial:Bold',sans-serif] text-4xl md:text-6xl lg:text-[80px] leading-tight text-white tracking-[-2px]">
           Creating <span className="text-[#9aff9a]">Brands</span>
           <br />
@@ -38,7 +37,8 @@ export default function HeroSection() {
 
         <button 
           onClick={scrollToContact}
-          className="bg-[#9aff9a] text-black font-['Arial:Bold',sans-serif] px-10 py-4 rounded-full text-base mt-6 hover:bg-[#7ee07e] transition-all hover:scale-105"
+          className="pointer-events-auto mt-6 bg-[#9aff9a] text-black font-['Arial:Bold',sans-serif] px-10 py-4 rounded-full text-base hover:bg-[#7ee07e] transition-all hover:scale-105"
+          aria-label="Navigate to contact section"
         >
           Let's Work Together
         </button>
