@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 const GLSLHills = lazy(() => import("@/components/ui/glsl-hills").then(mod => ({ default: mod.GLSLHills })));
 
 function GLSLHillsFallback() {
-  return <div className="absolute inset-0 bg-[#040404]" />;
+  return <div className="absolute inset-0 bg-[var(--zinc-950)]" />;
 }
 
 export default function HeroSection() {
@@ -24,7 +24,7 @@ export default function HeroSection() {
       
       <div className="relative z-10 flex flex-col gap-4 items-center text-center max-w-4xl pointer-events-none">
         <h1 className="font-['Arial:Bold',sans-serif] text-4xl md:text-6xl lg:text-[80px] leading-tight text-white tracking-[-2px]">
-          Creating <span className="text-[#9aff9a]">Brands</span>
+          Creating <span className="text-[var(--green-500)]">Brands</span>
           <br />
           That Resonate
         </h1>
@@ -37,7 +37,7 @@ export default function HeroSection() {
 
         <button 
           onClick={scrollToContact}
-          className="pointer-events-auto mt-6 bg-[#9aff9a] text-black font-['Arial:Bold',sans-serif] px-10 py-4 rounded-full text-base hover:bg-[#7ee07e] transition-all hover:scale-105"
+          className="pointer-events-auto mt-6 bg-[var(--green-500)] text-black font-['Arial:Bold',sans-serif] px-10 py-4 rounded-full text-base hover:bg-[var(--green-400)] transition-all hover:scale-105"
           aria-label="Navigate to contact section"
         >
           Let's Work Together

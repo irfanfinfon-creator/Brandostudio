@@ -36,7 +36,7 @@ function ProjectCard({ item }: { item: ProjectItem }) {
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
           <div className="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4">{item.title}</div>
           <div className="mb-8 line-clamp-2 md:mb-12 lg:mb-9 text-white/80">{item.description}</div>
-          <div className="flex items-center text-sm text-[#9aff9a]">
+          <div className="flex items-center text-sm text-[var(--green-500)]">
             Read more <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
@@ -62,7 +62,7 @@ function PaginationDots({ total, current, onClick }: { total: number; current: n
   return (
     <div className="mt-8 flex justify-center gap-2">
       {Array.from({ length: total }).map((_, i) => (
-        <button key={i} className={`h-2 w-2 rounded-full transition-colors ${current === i ? "bg-[#9aff9a]" : "bg-white/20"}`} onClick={() => onClick(i)} aria-label={`Go to slide ${i + 1}`} />
+        <button key={i} className={`h-2 w-2 rounded-full transition-colors ${current === i ? "bg-[var(--green-500)]" : "bg-white/20"}`} onClick={() => onClick(i)} aria-label={`Go to slide ${i + 1}`} />
       ))}
     </div>
   );
@@ -89,7 +89,7 @@ export default function ProjectsSection() {
   }, [carouselApi]);
 
   return (
-    <section id="projects" className="relative bg-[#040404] py-20 md:py-24 px-6 md:px-24">
+    <section id="projects" className="relative bg-[var(--zinc-950)] py-20 md:py-24 px-6 md:px-24">
       <div className="mb-12 flex flex-col gap-4 md:mb-14 lg:mb-16 md:flex-row md:items-end md:justify-between">
         <div className="flex flex-col gap-4">
           <h2 className="font-['Arial:Bold',sans-serif] text-3xl md:text-5xl text-white">Featured Projects</h2>

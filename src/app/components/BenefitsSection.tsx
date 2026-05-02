@@ -9,7 +9,7 @@ const benefits = [
 
 export default function BenefitsSection() {
   return (
-    <section id="benefits" className="bg-[#040404] py-20 md:py-24 px-6 md:px-24">
+    <section id="benefits" className="bg-[var(--zinc-950)] py-20 md:py-24 px-6 md:px-24">
       <h2 className="text-start mb-16 font-['Arial:Bold',sans-serif] text-3xl md:text-5xl text-white">
         Why Branding Matters
       </h2>
@@ -18,8 +18,8 @@ export default function BenefitsSection() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {benefits.map((benefit, index) => (
-          <article key={index} className="bg-[#040404] border border-[#222] rounded-[20px] p-10 hover:border-[#9aff9a] transition-all duration-300 hover:scale-105">
-            <h3 className="font-['Arial:Bold',sans-serif] text-[#9aff9a] text-2xl mb-4">{benefit.title}</h3>
+          <article key={index} className="bg-[var(--zinc-950)] border border-[var(--zinc-800)] rounded-[20px] p-10 hover:border-[var(--green-500)] transition-all duration-300 hover:scale-105">
+            <h3 className="font-['Arial:Bold',sans-serif] text-[var(--green-500)] text-2xl mb-4">{benefit.title}</h3>
             <p className="font-['Arial:Narrow',sans-serif] text-white text-base opacity-80 leading-relaxed">{benefit.description}</p>
           </article>
         ))}

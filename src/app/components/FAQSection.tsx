@@ -17,19 +17,19 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 md:py-24 px-6 md:px-24 bg-[#040404]">
+    <section id="faq" className="py-20 md:py-24 px-6 md:px-24 bg-[var(--zinc-950)]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
         <div>
-          <h2 className="font-['Arial:Bold',sans-serif] text-3xl md:text-4xl lg:text-[56px] text-white mb-6 leading-tight">Frequently Asked <span className="text-[#9aff9a]">Questions</span></h2>
+          <h2 className="font-['Arial:Bold',sans-serif] text-3xl md:text-4xl lg:text-[56px] text-white mb-6 leading-tight">Frequently Asked <span className="text-[var(--green-500)]">Questions</span></h2>
           <p className="font-['Arial:Narrow',sans-serif] text-base md:text-lg lg:text-[19.2px] text-white/70 max-w-md">Find answers to common questions about my branding services. Can't find what you're looking for? Feel free to reach out.</p>
-          <button onClick={scrollToContact} className="bg-[#9aff9a] text-black font-['Arial:Bold',sans-serif] mt-5 px-10 py-4 rounded-full text-base hover:bg-[#7ee07e] transition-all hover:scale-105 inline-flex items-center gap-2">Get In Touch <ArrowRight size={18} /></button>
+          <button onClick={scrollToContact} className="bg-[var(--green-500)] text-black font-['Arial:Bold',sans-serif] mt-5 px-10 py-4 rounded-full text-base hover:bg-[var(--green-400)] transition-all hover:scale-105 inline-flex items-center gap-2">Get In Touch <ArrowRight size={18} /></button>
         </div>
         <div className="space-y-3" role="region" aria-label="Frequently asked questions">
           {faqs.map((faq, index) => (
-            <div key={index} className={`bg-[#0a0a0a] border rounded-[20px] overflow-hidden transition-colors duration-300 ${openIndex === index ? 'border-[#9aff9a]' : 'border-[#222] hover:border-[#9aff9a]/50'}`}>
+            <div key={index} className={`bg-[var(--zinc-900)] border rounded-[20px] overflow-hidden transition-colors duration-300 ${openIndex === index ? 'border-[var(--green-500)]' : 'border-[var(--zinc-800)] hover:border-[var(--green-500)]/50'}`}>
               <button onClick={() => setOpenIndex(openIndex === index ? null : index)} className="w-full flex items-center justify-between p-5 text-left" aria-expanded={openIndex === index}>
                 <span className="font-['Arial:Bold',sans-serif] text-white text-lg pr-4">{faq.question}</span>
-                <ChevronDown className={`w-5 h-5 text-[#9aff9a] flex-shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} aria-hidden="true" />
+                <ChevronDown className={`w-5 h-5 text-[var(--green-500)] flex-shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} aria-hidden="true" />
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40' : 'max-h-0'}`}>
                 <p className="font-['Arial:Narrow',sans-serif] text-white/70 text-base px-5 pb-5">{faq.answer}</p>
